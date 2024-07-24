@@ -408,9 +408,65 @@ const allStudentsAbove20 = classroom.every(student => student.age > 20);
 console.log(allStudentsAbove20);
 
 // sort with respct to age
-
 // const sortedClassroom = classroom.sort((currentStudent, nextStudent) => currentStudent.age - nextStudent.age);
+
 // sort with respect to name
-const sortedClassroom = classroom.sort((currentStudent, nextStudent) => currentStudent.name.localeCompare (nextStudent.name));
+const sortedClassroom = classroom.sort((currentStudent, nextStudent) => currentStudent.name.localeCompare (nextStudent.name)); // for string
 // sort can return 3 types of values: +ve value, -ve value and zero
 console.log(sortedClassroom);
+
+
+// Hoisting
+
+// Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their containing scope during the compile phase. This means you can use functions and variables before they are actually declared in the code.
+
+// Variable Hoisting:
+
+console.log(myVariable); // undefined
+var myVariable = "Hello World!";
+
+//Function Hoisting:
+
+sayHello(); // Hello World!
+function sayHello() {
+    console.log("Hello World!");
+}
+
+
+// Closure
+
+// Closure is a feature in JavaScript where an inner function has access to its outer enclosing function's variables. Closures allow a function to access variables from an enclosing scope even after that scope has finished executing.
+
+// example 1
+function createCounter() {
+    let count = 0;
+
+    return function() {
+        return count++;
+    }
+}
+
+const counter1 = createCounter();
+console.log(counter1()); // 0
+
+// example 2
+function outerFunction() {
+  let outerVariable = "I'm an outer variable!";
+
+  function innerFunction() {
+      console.log(outerVariable);
+  }
+
+  return innerFunction;
+}
+
+const closureFunction = outerFunction();
+closureFunction(); // Output: "I'm an outer variable!"
+
+
+// KEY POINTS
+
+// Hoisting lifts variable and function declarations to the top of their scope, but only the declarations, not the initializations.
+// Closures enable functions to access and manipulate variables from an outer scope even after that scope has exited.
+// Understanding hoisting helps avoid bugs related to variable declarations and function usage.
+// Closures are powerful for creating private variables and functions, and for maintaining state across function calls.
