@@ -470,3 +470,15 @@ closureFunction(); // Output: "I'm an outer variable!"
 // Closures enable functions to access and manipulate variables from an outer scope even after that scope has exited.
 // Understanding hoisting helps avoid bugs related to variable declarations and function usage.
 // Closures are powerful for creating private variables and functions, and for maintaining state across function calls.
+
+
+// Output based question
+
+name(name);
+
+function name (name){
+    console.log(name)
+}
+
+// let name = "karan"  // Error
+var name = "karan"
